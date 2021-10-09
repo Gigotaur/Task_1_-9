@@ -4,36 +4,46 @@ public class Main {
 
     public static void main(String[] args) {
         double side_A, side_B;
-        double area = counterArea();
-        double perimetr = counterPerimetr();
-        Scanner length = new Scanner(System.in);
+
+        Scanner input = new Scanner(System.in);
+
         System.out.println("Введите значение первого катета прямоугольного треугольника");
-        side_A = length.nextDouble();
-        Scanner width = new Scanner(System.in);
+        side_A = input.nextDouble();
         System.out.println("Введите значение второго катета прямоугольного треугольника");
-        side_B = width.nextDouble();
-        return (side_A, side_B);
-    }
-    private static double Scanner () {
-        
-        return;
+        side_B = input.nextDouble();
+
+        double side_C = calculateHypothenuza(side_A, side_B);
+
+        if (checkThisOut(side_A, side_B, side_C)){
+            System.out.println("Треугольник существует");
+        }
+        else {
+            System.out.println("Треугольник не существует");
+            return;
+        }
+
+        double area = calculateArea(side_A, side_B, side_C);
+        double perimetr = calculatePerimetr(side_A, side_B, side_C);
+
+        System.out.printf("Площадь прямоугольного треугольника равна: %.4f%n", area);
+        System.out.printf("Периметр прямоугольногот реугольника равен: %.4f%n", perimetr);
     }
 
-
-    private static double counterArea () {
+    private static double calculateHypothenuza(double side_A, double side_B){
         double side_C = Math.sqrt(side_A * side_B + side_B * side_B);
-        // System.out.println(side_C);
-        area = (side_A * side_B / 2);
-        System.out.println("Площадь прямоугольного треугольника равна: " + area);
+        return side_C;
+    }
+
+    private static double calculateArea (double side_A, double side_B, double side_C) {
+        double area = (side_A * side_B / 2);
         return area;
     }
 
-    private static double counterPerimetr () {
-        perimetr = (side_A + side_B + side_C);
-        System.out.println("Периметор прямоугольногот реугольника равен: " + perimetr);
+    private static double calculatePerimetr (double side_A, double side_B, double side_C) {
+        double perimetr = (side_A + side_B + side_C);
         return perimetr;
     }
-    private static double checkThisOut () {
-        
+    private static boolean checkThisOut (double side_A,  double side_B, double side_C) {
+        return (side_A + side_B > side_C) && (side_A + side_C > side_B) && (side_B + side_C > side_A);
     }
 }
