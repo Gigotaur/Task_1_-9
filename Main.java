@@ -3,14 +3,10 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        double side_A, side_B;
 
-        Scanner input = new Scanner(System.in);
+        double side_A= enter("Значение первого катета прямоугольного треугольника: ");
+        double side_B= enter("Введите значение второго катета прямоугольного треугольника: ");
 
-        System.out.println("Введите значение первого катета прямоугольного треугольника");
-        side_A = input.nextDouble();
-        System.out.println("Введите значение второго катета прямоугольного треугольника");
-        side_B = input.nextDouble();
 
         double side_C = calculateHypothenuza(side_A, side_B);
 
@@ -27,6 +23,14 @@ public class Main {
 
         System.out.printf("Площадь прямоугольного треугольника равна: %.4f%n", area);
         System.out.printf("Периметр прямоугольногот реугольника равен: %.4f%n", perimetr);
+    }
+
+    private static double enter(String text){
+        System.out.println(text);
+        Scanner input = new Scanner(System.in);
+        double side;
+        side = input.nextDouble();
+        return side;
     }
 
     private static double calculateHypothenuza(double side_A, double side_B){
