@@ -1,49 +1,53 @@
 package com.company;
-
-import java.util.Locale;
 import java.util.Scanner;
-
-public class Main{
+public class Main {
 
     public static void main(String[] args) {
-        Locale.setDefault(Locale.ROOT);
-        double x= enter("Введите вещественное число: ");
-        double n = enter("Введите натуральное число: ");
 
-        if (n > 0) {
-            double ans = calculateAnswer(x, n);
+        double side_A= enter("Значение первого катета прямоугольного треугольника: ");
+        double side_B= enter("Введите значение второго катета прямоугольного треугольника: ");
 
-            if (ans == Double.NEGATIVE_INFINITY || ans == Double.POSITIVE_INFINITY) {
-                System.out.printf("Знаменатель дроби равен нулю.%n");
-            } else {
-                System.out.printf("Ответом выражения является %.4f%n", ans);
-            }
+
+        double side_C = calculateHypothenuza(side_A, side_B);
+
+        if (checkThisOut(side_A, side_B, side_C)){
+            System.out.println("Треугольник существует");
         }
         else {
-            System.out.println("Значение n введено некорректно. Пожалуйста, повторите попытку");
+            System.out.println("Треугольник не существует");
+            return;
         }
+
+        double area = calculateArea(side_A, side_B, side_C);
+        double perimetr = calculatePerimetr(side_A, side_B, side_C);
+
+        System.out.printf("Площадь прямоугольного треугольника равна: %.4f%n", area);
+        System.out.printf("Периметр прямоугольногот реугольника равен: %.4f%n", perimetr);
     }
 
     private static double enter(String text){
         System.out.println(text);
         Scanner input = new Scanner(System.in);
-        double num;
-        num = input.nextDouble();
-        return num;
+        double side;
+        side = input.nextDouble();
+        return side;
     }
 
-    private static double calculateAnswer(double x, double n) {
-        double ans = 1;
-        double numinator = 1;
-        double denuminator = 1;
+    private static double calculateHypothenuza(double side_A, double side_B){
+        double side_C = Math.sqrt(side_A * side_B + side_B * side_B);
+        return side_C;
+    }
 
-        for (int i = 1; i <= n; i++)
-        {
-            numinator *= (x - (2 * i));
-            denuminator *= (x - (2 * i - 1));
-        }
-        ans = numinator / denuminator;
+    private static double calculateArea (double side_A, double side_B, double side_C) {
+        double area = (side_A * side_B / 2);
+        return area;
+    }
 
-        return ans;
+    private static double calculatePerimetr (double side_A, double side_B, double side_C) {
+        double perimetr = (side_A + side_B + side_C);
+        return perimetr;
+    }
+    private static boolean checkThisOut (double side_A,  double side_B, double side_C) {
+        return (side_A + side_B > side_C) && (side_A + side_C > side_B) && (side_B + side_C > side_A);
     }
 }
