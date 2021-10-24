@@ -1,12 +1,12 @@
 package com.company;
 import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 
         double side_A= enter("Значение первого катета прямоугольного треугольника: ");
         double side_B= enter("Введите значение второго катета прямоугольного треугольника: ");
-
 
         double side_C = calculateHypothenuza(side_A, side_B);
 
