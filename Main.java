@@ -25,7 +25,7 @@ public class Main {
         System.out.printf("Периметр прямоугольногот реугольника равен: %.4f%n", perimetr);
     }
 
-    private static double enter(String text){
+    private static double readNumber(String text){
         System.out.println(text);
         Scanner input = new Scanner(System.in);
         double side;
