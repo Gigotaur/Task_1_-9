@@ -34,7 +34,7 @@ public class Main {
     }
 
     private static double calculateHypothenuza(double side_A, double side_B){
-        double side_C = Math.sqrt(side_A * side_B + side_B * side_B);
+        double side_C = Math.sqrt(side_A * side_A + side_B * side_B);
         return side_C;
     }
 
