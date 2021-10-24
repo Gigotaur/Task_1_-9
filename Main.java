@@ -18,7 +18,7 @@ public class Main {
             return;
         }
 
-        double area = calculateArea(side_A, side_B, side_C);
+        double area = calculateArea(side_A, side_B);
         double perimetr = calculatePerimetr(side_A, side_B, side_C);
 
         System.out.printf("Площадь прямоугольного треугольника равна: %.4f%n", area);
@@ -38,7 +38,7 @@ public class Main {
         return side_C;
     }
 
-    private static double calculateArea (double side_A, double side_B, double side_C) {
+    private static double calculateArea (double side_A, double side_B) {
         double area = (side_A * side_B / 2);
         return area;
     }
