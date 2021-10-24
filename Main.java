@@ -10,7 +10,7 @@ public class Main {
 
         double side_C = calculateHypothenuza(side_A, side_B);
 
-        checkThisOut(double side_A, double side_B, double side_C);
+        checkThisOut(side_A, side_B, side_C);
 
         double area = calculateArea(side_A, side_B);
         double perimetr = calculatePerimetr(side_A, side_B, side_C);
