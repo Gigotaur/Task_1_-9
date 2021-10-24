@@ -5,8 +5,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        double side_A= enter("Значение первого катета прямоугольного треугольника: ");
-        double side_B= enter("Введите значение второго катета прямоугольного треугольника: ");
+        double side_A= readNumber("Значение первого катета прямоугольного треугольника: ");
+        double side_B= readNumber("Введите значение второго катета прямоугольного треугольника: ");
 
         double side_C = calculateHypothenuza(side_A, side_B);
 
