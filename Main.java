@@ -47,6 +47,7 @@ public class Main {
             System.out.println("Треугольник существует");
         } else {
             System.out.println("Треугольник не существует");
+            System.exit(1);
         }
     }
 
