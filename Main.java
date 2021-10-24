@@ -47,7 +47,9 @@ public class Main {
         double perimetr = (side_A + side_B + side_C);
         return perimetr;
     }
+    
     private static boolean checkThisOut (double side_A,  double side_B, double side_C) {
         return (side_A + side_B > side_C) && (side_A + side_C > side_B) && (side_B + side_C > side_A);
     }
+    
 }
