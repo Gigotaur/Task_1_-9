@@ -5,15 +5,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        double side_A = readNumber("Значение первого катета прямоугольного треугольника: ");
-        double side_B = readNumber("Введите значение второго катета прямоугольного треугольника: ");
+        double sideA = readNumber("Значение первого катета прямоугольного треугольника: ");
+        double sideB = readNumber("Введите значение второго катета прямоугольного треугольника: ");
 
-        double side_C = calculateHypothenuza(side_A, side_B);
+        double sideC = calculateHypothenuza(sideA, sideB);
 
-        checkThisOut(side_A, side_B, side_C);
+        if (checkNum(sideA, sideB, sideC)){
+            System.out.println("Треугольник существует");
+        }
+        else {
+            System.out.println("Треугольник не существует");
+            return;
+        }
 
-        double area = calculateArea(side_A, side_B);
-        double perimetr = calculatePerimetr(side_A, side_B, side_C);
+        double area = calculateArea(sideA, sideB);
+        double perimetr = calculatePerimetr(sideA, sideB, sideC);
 
         System.out.printf("Площадь прямоугольного треугольника равна: %.4f%n", area);
         System.out.printf("Периметр прямоугольногот реугольника равен: %.4f%n", perimetr);
@@ -22,33 +28,26 @@ public class Main {
     private static double readNumber(String text) {
         System.out.println(text);
         Scanner input = new Scanner(System.in);
-        double side;
-        side = input.nextDouble();
+        double side = input.nextDouble();
         return side;
     }
 
-    private static double calculateHypothenuza(double side_A, double side_B) {
-        double side_C = Math.sqrt(side_A * side_A + side_B * side_B);
-        return side_C;
+    private static double calculateHypothenuza(double sideA, double sideB) {
+        double sideC = Math.sqrt(sideA * sideA + sideB * sideB);
+        return sideC;
     }
 
-    private static double calculateArea(double side_A, double side_B) {
-        double area = (side_A * side_B / 2);
+    private static double calculateArea(double sideA, double sideB) {
+        double area = (sideA * sideB / 2);
         return area;
     }
 
-    private static double calculatePerimetr(double side_A, double side_B, double side_C) {
-        double perimetr = (side_A + side_B + side_C);
+    private static double calculatePerimetr(double sideA, double sideB, double sideC) {
+        double perimetr = (sideA + sideB + sideC);
         return perimetr;
     }
 
-    private static void checkThisOut(double side_A, double side_B, double side_C) {
-        if ((side_A + side_B > side_C) && (side_A + side_C > side_B) && (side_B + side_C > side_A)) {
-            System.out.println("Треугольник существует");
-        } else {
-            System.out.println("Треугольник не существует");
-            System.exit(1);
-        }
+    private static boolean checkNum(double sideA, double sideB, double sideC) {
+       return (sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA);
     }
-
 }
